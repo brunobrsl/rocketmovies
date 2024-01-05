@@ -55,10 +55,12 @@ export const Profile = styled(Link)`
       color: ${({ theme }) => theme.COLORS.WHITE_300};
     }
 
-    a {
+    button {
       color: ${({ theme }) => theme.COLORS.GRAY_400};
       font-size: 14px;
       text-align: end;
+      border: none;
+      background: none;
     }
   }
 

@@ -30,10 +30,12 @@ export const Form = styled.form`
     color: ${({ theme }) => theme.COLORS.GRAY_200};
   }
 
-  > a {
-    color: ${({ theme }) => theme.COLORS.PINK};
+  > button:last-child {
     margin-top: 42px;
-    text-align: center;
+    align-self: center;
+    background: none;
+    color: ${({ theme }) => theme.COLORS.PINK};
+    border: none;
   }
 `;
 

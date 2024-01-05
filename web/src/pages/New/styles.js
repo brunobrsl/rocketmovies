@@ -34,6 +34,15 @@ export const Form = styled.form`
     gap: 40px;
 
     margin: 40px 0;
+
+    input::-webkit-outer-spin-button, 
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+    }
+
+    input[type=number] {
+      appearance: textfield;
+    }
   }
 
   > h2 {

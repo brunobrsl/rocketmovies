@@ -30,7 +30,7 @@ export const Form = styled.form`
     color: ${({ theme }) => theme.COLORS.GRAY_200};
   }
 
-  > a {
+  > button {
     margin-top: 42px;
     align-self: center;
   }

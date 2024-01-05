@@ -6,10 +6,10 @@ class MoviesController {
     const { title, description, rating, tags } = request.body;
     const user_id = request.user.id;
 
-    const checkRating = rating < 1 || rating > 5;
+    const checkRating = Number(rating) < 1 || Number(rating) > 5;
 
     if(checkRating) {
-      throw new AppError("A nota deve ser entre 1 e 5.")
+      throw new AppError("A avaliação deve ser entre 1 e 5.")
     }
 
     const [movie_id] = await knex("movies").insert({
