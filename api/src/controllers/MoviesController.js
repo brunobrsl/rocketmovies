@@ -4,7 +4,7 @@ const AppError = require("../utils/AppError");
 class MoviesController {
   async create(request, response) {
     const { title, description, rating, tags } = request.body;
-    const { user_id } = request.params;
+    const user_id = request.user.id;
 
     const checkRating = rating < 1 || rating > 5;
 
@@ -29,7 +29,7 @@ class MoviesController {
 
     await knex("tags").insert(tagsInsert);
 
-    response.json();
+    return response.json();
   }
 
   async show(request, response) {
@@ -53,7 +53,9 @@ class MoviesController {
   }
 
   async index(request, response) {
-    const { title, user_id, tags } = request.query;
+    const { title, tags } = request.query;
+
+    const user_id = request.user.id;
 
     let movies;
 
