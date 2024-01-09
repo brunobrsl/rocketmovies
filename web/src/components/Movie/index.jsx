@@ -1,19 +1,15 @@
 import {  FaStar, FaRegStar } from "react-icons/fa";
 
 import { Container } from './styles';
+
+import { StarRating } from '../StarRating';
 import { Tag } from '../Tag';
 
 export function Movie({ data, ...rest }) {
   return (
     <Container {...rest}>
       <h1>{data.title}</h1>
-      <div className="rating">
-        <FaStar />
-        <FaStar />
-        <FaStar />
-        <FaStar />
-        <FaRegStar />
-      </div>
+      <StarRating value={data.rating} size={12} />
 
       <p>{data.description}</p>
 

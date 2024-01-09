@@ -17,6 +17,26 @@ export const Container = styled.div`
   }
 `;
 
+export const Search = styled.input`
+  height: 56px;
+  width: 100%;
+
+  margin-bottom: 64px;
+  padding: 19px 24px;
+
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
+  color: ${({ theme }) => theme.COLORS.WHITE_300};
+  
+  border: 0;
+  border-radius: 10px;
+
+  &::placeholder {
+    color: ${({ theme }) => theme.COLORS.GRAY_400};
+    
+    font-size: 14px;
+  }
+`;
+
 export const NewMovie = styled(Link)`
   background-color: ${({ theme }) => theme.COLORS.PINK};
   color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
@@ -38,8 +58,9 @@ export const Content = styled.div`
   width: 100%;
 
   margin-top: 40px;
-  max-height: 600px;
-  overflow-y: scroll;
+  max-height: 500px;
+  overflow-x: hidden;
+  overflow-y: auto;
 
   &::-webkit-scrollbar {
       width: 8px;

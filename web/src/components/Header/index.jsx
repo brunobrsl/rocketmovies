@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/auth';
+import { Link } from 'react-router-dom';
 
 import { api } from '../../services/api';
 
 import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
 
-import { Container, Search, Profile } from './styles';
+import { Container, Profile } from './styles';
 
 export function Header() {
   const { signOut, user } = useAuth();
@@ -15,7 +15,7 @@ export function Header() {
   const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
 
   function handleSignOut() {
-    //navigate("/");
+    navigate("/");
     signOut();
   }
 
@@ -23,21 +23,17 @@ export function Header() {
     <Container>
       <h1>Rocketmovies</h1>
 
-      <Search 
-        placeholder="Pesquisar pelo título" 
-        onChange={e => setSearch(e.target.value)}
-      />
-
-      <Profile to="/profile">
-        <div>
+      <Profile>
+        <Link to="/profile">
           <strong>{user.name}</strong>
-          <button onClick={handleSignOut}>sair</button>
-        </div>
+          <img 
+            src={avatarUrl} 
+            alt={user.name} 
+          />
+        </Link>
+        <button onClick={handleSignOut}>sair</button>
 
-        <img 
-          src={avatarUrl} 
-          alt={user.name} 
-        />
+       
       </Profile>
     </Container>
   );

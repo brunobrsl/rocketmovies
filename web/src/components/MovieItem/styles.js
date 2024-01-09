@@ -26,6 +26,8 @@ export const Container = styled.div`
     height: 56px;
     width: 100%;
 
+    text-transform: capitalize;
+
     padding-left: 16px;
 
     color: ${({ theme }) => theme.COLORS.WHITE_100};

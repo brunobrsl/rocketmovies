@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.span`
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
+  text-transform: capitalize;
   margin-right: 8px;
   padding: 8px 16px;
   border-radius: 8px;

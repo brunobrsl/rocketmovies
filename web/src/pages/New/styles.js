@@ -7,7 +7,6 @@ export const Container = styled.div`
   > main {
     overflow-y: auto;
     max-width: 1137px;
-    max-height: 750px;
     margin: 40px auto 0;
 
     &::-webkit-scrollbar {

@@ -7,7 +7,7 @@ export const Container = styled.div`
   > main {
     overflow-y: auto;
     max-width: 1137px;
-    max-height: 581px;
+    height: 581px;
     margin: 40px auto 0;
 
     &::-webkit-scrollbar {
@@ -25,6 +25,7 @@ export const Content = styled.div`
   margin-right: 16px;
 
   > .data {
+    position: relative;
     margin: 24px 0;
     display: flex;
     align-items: center;
@@ -34,16 +35,14 @@ export const Content = styled.div`
       font-size: 36px;
       font-weight: 500;
     }
-  
-    .rating {
-      display: flex;
-      gap: 10px;
 
-      svg {
-        width: 20px;
-        height: 20px;
-        color: ${({ theme }) => theme.COLORS.PINK};
-      }
+    button {
+      position: absolute;
+      background: none;
+      color: ${({ theme }) => theme.COLORS.PINK};
+      font-size: 16px;
+      border: none;
+      right: 0;
     }
   }
 

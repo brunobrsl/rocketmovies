@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-
 import { ButtonText } from '../../components/ButtonText';
 import { MovieItem } from '../../components/MovieItem';
 import { Textarea } from '../../components/Textarea';

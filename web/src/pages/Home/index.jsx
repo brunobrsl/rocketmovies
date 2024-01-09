@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { FiPlus } from 'react-icons/fi'
-import { Container, NewMovie, Content } from './styles';
+import { Container, NewMovie, Content, Search } from './styles';
+import { useNavigate } from 'react-router-dom';
 
 import { api } from '../../services/api';
 
@@ -10,22 +11,32 @@ import { Movie } from '../../components/Movie';
 export function Home() {
   const [search, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
-  
+
+  const navigate = useNavigate();
+
+  function handleDetails(id) {
+    navigate(`/details/${id}`);
+  }
+
   useEffect(() => {
     async function fetchMovies() {
-      const response = await api.get("/movies");
+      const response = await api.get(`/movies?title=${search}`);
       setMovies(response.data);
-      console.log(response.data);
     }
 
     fetchMovies();
-  }, []);
+  }, [search]);
 
   return (
     <Container>
       <Header />
 
       <main>
+        <Search 
+          placeholder="Pesquisar pelo título" 
+          onChange={e => setSearch(e.target.value)}
+        />
+
         <header>
           <h1>Meus filmes</h1>
 
@@ -41,6 +52,7 @@ export function Home() {
               <Movie
                 key={String(movie.id)} 
                 data={movie}
+                onClick={() => handleDetails(movie.id)}
               />
             ))
           }
